@@ -101,15 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const snowflakeContainer = document.createElement("div");
+    snowflakeContainer.classList.add("snowflake-container"); // Optional: add a class to style the container
     document.body.appendChild(snowflakeContainer);
 
-    // Generate multiple snowflakes
-    for (let i = 0; i < 30; i++) {
+    const maxSnowflakes = 30; // Limit the number of snowflakes
+
+    // Generate snowflakes
+    let snowflakeCount = 0;  // Counter for the number of snowflakes created
+
+    function generateSnowflake() {
+        if (snowflakeCount >= maxSnowflakes) {
+            return; // Stop generating if the number exceeds the limit
+        }
+
         const snowflake = document.createElement("div");
         snowflake.textContent = "❄"; // Unicode for a snowflake
+
         snowflake.classList.add("snowflake");
 
         // Randomize initial position and falling properties
@@ -120,27 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         snowflakeContainer.appendChild(snowflake);
 
+        // Increment the snowflake counter
+        snowflakeCount++;
+
         // Remove snowflake once it finishes falling (optional for performance)
         snowflake.addEventListener("animationend", () => {
             snowflake.remove();
+            snowflakeCount--;  // Decrement the snowflake count when it is removed
         });
     }
 
-    // Add more snowflakes periodically (optional for continuous effect)
-    setInterval(() => {
-        const snowflake = document.createElement("div");
-        snowflake.textContent = "❄";
-        snowflake.classList.add("snowflake");
-        snowflake.style.left = Math.random() * 100 + "vw";
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
-        snowflake.style.animationDelay = Math.random() * 5 + "s";
-        snowflake.style.fontSize = Math.random() * 1.5 + 1 + "rem";
-        snowflakeContainer.appendChild(snowflake);
-
-        snowflake.addEventListener("animationend", () => {
-            snowflake.remove();
-        });
-    }, 1000);
+    // Generate snowflakes continuously with a delay (to keep them from all appearing at once)
+    setInterval(generateSnowflake, 500); // New snowflake every 500ms
 });
 
 
