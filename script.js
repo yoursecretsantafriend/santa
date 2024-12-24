@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(snowflakeContainer);
 
     // Generate multiple snowflakes
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
         const snowflake = document.createElement("div");
         snowflake.textContent = "❄"; // Unicode for a snowflake
         snowflake.classList.add("snowflake");
