@@ -1,4 +1,4 @@
-/* General Styles */
+d/* General Styles */
 body {
     background-image: url('santabg.png'); /* Replace with your image file path */
     background-size: cover; /* Ensures the image covers the entire background */
@@ -358,7 +358,7 @@ html, body {
 
 /* Style for the image */
 .top-left-image {
-    position: absolute;
+    position: relative;
     top: 10px; /* Adjust distance from top */
     left: 10px; /* Adjust distance from left */
     width: 100px; /* Set width of the image */
