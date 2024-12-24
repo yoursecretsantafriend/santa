@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { username: 'Shilpa Chacko', password: 'password61', santa_friend: 'Lichu Mathew' }
     ];
     
-
-    // Handle Login form submission
+// Handle Login form submission
     function handleLogin(event) {
         event.preventDefault(); // Prevent form from submitting
 
@@ -99,9 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attach event listener to the form
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+    // Snowflakes generation code
     const snowflakeContainer = document.createElement("div");
     snowflakeContainer.classList.add("snowflake-container"); // Optional: add a class to style the container
     document.body.appendChild(snowflakeContainer);
@@ -141,19 +139,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Generate snowflakes continuously with a delay (to keep them from all appearing at once)
     setInterval(generateSnowflake, 500); // New snowflake every 500ms
-});
 
+    // Audio toggle functionality
+    const audio = document.getElementById("music"); // Ensure audio element is targeted correctly
+    const playMusicButton = document.getElementById("second-button-text");
 
-// Audio toggle functionality
-const audio = document.getElementById("music"); // Ensure audio element is targeted correctly
-const playMusicButton = document.getElementById("second-button-text");
-
-playMusicButton.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.play();
-        playMusicButton.textContent = "Pause Music"; // Update button text to indicate Pause
-    } else {
-        audio.pause();
-        playMusicButton.textContent = "Play Music"; // Revert button text back to Play
-    }
+    playMusicButton.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playMusicButton.textContent = "Pause Music";
+        } else {
+            audio.pause();
+            playMusicButton.textContent = "Play Music";
+        }
+    });
 });
