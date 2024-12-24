@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Randomize initial position and falling properties
         snowflake.style.left = Math.random() * 100 + "vw"; // Random horizontal position
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + "s"; // Random falling speed (5–10s)
-        snowflake.style.animationDelay = Math.random() * 5 + "s"; // Random start delay
+        snowflake.style.animationDuration = Math.random() * 2 + 2 + "s"; // Random falling speed (5–10s)
+        snowflake.style.animationDelay = Math.random() * 3 + "s"; // Random start delay
         snowflake.style.fontSize = Math.random() * 1.5 + 1 + "rem"; // Random size
 
         snowflakeContainer.appendChild(snowflake);
