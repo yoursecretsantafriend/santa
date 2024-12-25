@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Hardcoded users data
     async function fetchUsersData() {
-        const response = await fetch('http://localhost:3000/users');
+        const response = await fetch('http://http://13.201.78.44:3200/users');
         if (response.ok) {
             return await response.json();
         } else {
