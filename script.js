@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('homeContainer').style.display = 'block'; // Show home page
 
                     // Set the dynamic New Year Friend message
-                    document.getElementById('friendName').textContent = `Your New Year Friend: ${user.Christmas_friend}`;
+                    document.getElementById('friendName').textContent = `Your Christmas Friend is: ${user.Christmas_friend}`;
                 } else {
                     // Invalid login, show alert and re-display the login form
                     alert('Invalid username or password. Please try again.');
