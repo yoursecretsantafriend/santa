@@ -51,28 +51,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attach event listener to the form
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
-});
-// Function to generate random snowflakes
-function createSnowflakes() {
-    const numSnowflakes = 100; // Number of snowflakes
-    for (let i = 0; i < numSnowflakes; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
-        // Random horizontal position
-        snowflake.style.left = `${Math.random() * 100}%`; 
-        
-        // Random duration for each snowflake (between 5 to 10 seconds)
-        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; 
-        
-        // Random delay for each snowflake (between 0 and 5 seconds)
-        snowflake.style.animationDelay = `${Math.random() * 5}s`; 
-        
-        // Random snowflake size (between 1rem and 2.5rem)
-        snowflake.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
-        
-        snowflake.innerHTML = '❄'; // Snowflake character
-        
-        document.body.appendChild(snowflake);
+
+    const snowflakeContainer = document.createElement("div");
+    snowflakeContainer.classList.add("snowflake-container");
+    document.body.appendChild(snowflakeContainer);
+
+    const maxSnowflakes = 30;
+    let snowflakeCount = 0;
+
+    function generateSnowflake() {
+        if (snowflakeCount >= maxSnowflakes) {
+            return;
+        }
+
+        const snowflake = document.createElement("div");
+        snowflake.textContent = "❄";
+        snowflake.classList.add("snowflake");
+
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.animationDuration = Math.random() * 2 + 2 + "s";
+        snowflake.style.animationDelay = Math.random() * 3 + "s";
+        snowflake.style.fontSize = Math.random() * 1.5 + 1 + "rem";
+
+        snowflakeContainer.appendChild(snowflake);
+        snowflakeCount++;
+
+        snowflake.addEventListener("animationend", () => {
+            snowflake.remove();
+            snowflakeCount--;
+        });
     }
-}
+
+    setInterval(generateSnowflake, 500); // New snowflake every 500ms
+
+    // Audio toggle functionality
+    const audio = document.getElementById("music");
+    const playMusicButton = document.getElementById("second-button-text");
+
+    playMusicButton.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playMusicButton.textContent = "Pause Music";
+        } else {
+            audio.pause();
+            playMusicButton.textContent = "Play Music";
+        }
+    });
+});
