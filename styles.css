@@ -80,7 +80,7 @@ font-weight: 600; /* For Semi-Bold */
     height: 60px;
     padding: 5px;
     border-radius: 50%;
-    border: 2px solid #ffffff;
+    border: 1px solid #ffffff;
 }
 @keyframes popup {
     0% {
